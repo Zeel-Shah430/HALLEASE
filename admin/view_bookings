@@ -1,0 +1,9 @@
+<?php
+include '/config/db.php';
+
+$q = "SELECT * FROM bookings";
+$res = mysqli_query($conn, $q);
+
+while ($row = mysqli_fetch_assoc($res)) {
+    echo "Booking {$row['booking_id']} - {$row['status']}<br>";
+}
