@@ -8,7 +8,7 @@ $error = "";
 if (isset($_POST['login'])) {
     $role = $_POST['role'];
     $email = clean_input($_POST['email']);
-    $password = trim($_POST['password']); 
+    $password = trim($_POST['password']);
 
     if (empty($email) || empty($password)) {
         $error = "Please fill all fields";
@@ -61,11 +61,11 @@ if (isset($_POST['login'])) {
                     $_SESSION['user_id'] = $row['user_id'];
                     $_SESSION['user_email'] = $row['email'];
                     $_SESSION['user_name'] = $row['full_name'];
-                    
+
                     if (isset($_GET['redirect'])) {
                         header("Location: ../" . $_GET['redirect']);
                     } else {
-                        header("Location: ../index.php");
+                        header("Location: dashboard.php");
                     }
                     exit();
                 } else {
@@ -80,50 +80,163 @@ if (isset($_POST['login'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | HallEase</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Poppins', sans-serif; background: #0f0f1e; color: white; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-        .background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); z-index: -1; }
-        
-        .login-wrapper { background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 20px; width: 100%; max-width: 450px; color: #333; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
-        
-        .form-header { text-align: center; margin-bottom: 30px; }
-        .form-header h2 { margin: 0; color: #333; }
-        .form-header p { color: #666; font-size: 0.9rem; }
-        
-        .input-group { margin-bottom: 20px; position: relative; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
-        .input-group input { width: 100%; padding: 12px; padding-right: 40px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
-        
-        .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .role-card { cursor: pointer; text-align: center; border: 1px solid #ddd; padding: 10px; border-radius: 8px; transition: all 0.3s; position: relative; }
-        .role-card:hover { border-color: #667eea; background: #f0f4ff; }
-        .role-card input { position: absolute; opacity: 0; width: 0; height: 0; }
-        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f1e;
+            color: white;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: -1;
+        }
+
+        .login-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            color: #333;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-header h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            padding-right: 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .role-card {
+            cursor: pointer;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .role-card:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .role-card input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
         /* Highlight selected role */
-        .role-card input:checked + .role-content {
+        .role-card input:checked+.role-content {
             color: #667eea;
             font-weight: bold;
         }
-        .role-card input:checked ~ .role-border {
+
+        .role-card input:checked~.role-border {
             border: 2px solid #667eea;
         }
+
         .role-card:has(input:checked) {
             border-color: #667eea;
             background: #f0f4ff;
             box-shadow: 0 0 0 1px #667eea;
         }
 
-        .login-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea, #764ba2); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px; }
-        .login-btn:hover { opacity: 0.9; }
-        
-        .signup-link { display: block; text-align: center; margin-top: 20px; color: #667eea; text-decoration: none; font-weight: 500; }
-        .error-message { background: #fee2e2; color: #b91c1c; padding: 10px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-size: 0.9rem; }
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        .signup-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
 
         .toggle-password {
             position: absolute;
@@ -134,9 +247,10 @@ if (isset($_POST['login'])) {
         }
     </style>
 </head>
+
 <body>
     <div class="background"></div>
-    
+
     <div class="login-wrapper">
         <div class="form-header">
             <h2>Sign In</h2>
@@ -168,7 +282,8 @@ if (isset($_POST['login'])) {
 
             <div class="input-group">
                 <label>Email Address</label>
-                <input type="email" name="email" required placeholder="Enter your email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
+                <input type="email" name="email" required placeholder="Enter your email"
+                    value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
             </div>
 
             <div class="input-group">
@@ -198,4 +313,5 @@ if (isset($_POST['login'])) {
         }
     </script>
 </body>
+
 </html>

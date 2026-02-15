@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HallEase Setup - Quick Start</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card h2 i {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        .step {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .step h3 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-info {
+            background: rgba(59, 130, 246, 0.1);
+            border: 2px solid #3b82f6;
+            color: #1e40af;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .feature i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .feature h4 {
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 HallEase Quick Setup</h1>
+            <p>Get your upgraded system running in 5 steps</p>
+        </div>
+
+        <div class="alert alert-info">
+            <strong>✅ FIXED:</strong> Login now redirects to user dashboard (not index.php)
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-list-check"></i> Setup Steps</h2>
+
+            <div class="step">
+                <h3><span class="step-number">1</span> Install Database Upgrades</h3>
+                <p>Add Razorpay fields, security tables, and performance indexes</p>
+                <a href="install_upgrades.php" class="btn" target="_blank">
+                    <i class="fas fa-database"></i> Run Database Installer
+                </a>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">2</span> Activate New System Files</h3>
+                <p>Replace old booking files with upgraded versions</p>
+                <a href="activate_new_system.php" class="btn btn-warning" target="_blank">
+                    <i class="fas fa-sync"></i> Activate New System
+                </a>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">3</span> Clear Browser Cache</h3>
+                <p>Press <strong>Ctrl + Shift + Del</strong> → Select "Cached images and files" → Click "Clear data"</p>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">4</span> Login as User</h3>
+                <p>After clearing cache, login to see the new design</p>
+                <a href="user/login.php" class="btn btn-success" target="_blank">
+                    <i class="fas fa-sign-in-alt"></i> Go to Login
+                </a>
+            </div>
+
+            <div class="step">
+                <h3><span class="step-number">5</span> Test Booking System</h3>
+                <p>Try creating a booking to verify everything works</p>
+                <a href="user/book_hall.php" class="btn" target="_blank">
+                    <i class="fas fa-calendar-check"></i> Book a Hall
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-star"></i> New Features You'll See</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-paint-brush"></i>
+                    <h4>Premium UI</h4>
+                    <p>Gradient backgrounds & glassmorphism</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-halved"></i>
+                    <h4>Zero Double Booking</h4>
+                    <p>SQL-based overlap prevention</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-credit-card"></i>
+                    <h4>Razorpay Payments</h4>
+                    <p>Secure payment gateway</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h4>Bank-Level Security</h4>
+                    <p>CSRF, SQL injection protection</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Real-Time Calculation</h4>
+                    <p>Auto price & date validation</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h4>Auto-Cleanup</h4>
+                    <p>15-min payment timeout</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-book"></i> Documentation</h2>
+            <p style="margin-bottom: 15px; color: #64748b;">Need more help? Check these guides:</p>
+            <a href="SETUP_GUIDE.md" class="btn" style="margin-right: 10px;">
+                <i class="fas fa-file-alt"></i> Setup Guide
+            </a>
+            <a href="QUICK_START.md" class="btn btn-success" style="margin-right: 10px;">
+                <i class="fas fa-rocket"></i> Quick Start
+            </a>
+            <a href="IMPLEMENTATION_GUIDE.md" class="btn btn-warning">
+                <i class="fas fa-code"></i> Full Documentation
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

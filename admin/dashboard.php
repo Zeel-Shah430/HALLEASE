@@ -68,7 +68,9 @@ $page_title = "Admin Dashboard";
                             <i class="fas fa-wallet"></i>
                         </div>
                         <div class="stat-info">
-                            <h3>₹<?php echo number_format($total_revenue ?? 0); ?></h3>
+                            <h3>₹
+                                <?php echo number_format($total_revenue ?? 0); ?>
+                            </h3>
                             <p>Total Revenue</p>
                         </div>
                     </div>
@@ -78,7 +80,9 @@ $page_title = "Admin Dashboard";
                             <i class="fas fa-calendar-check"></i>
                         </div>
                         <div class="stat-info">
-                            <h3><?php echo $total_bookings; ?></h3>
+                            <h3>
+                                <?php echo $total_bookings; ?>
+                            </h3>
                             <p>Total Bookings</p>
                         </div>
                     </div>
@@ -88,7 +92,9 @@ $page_title = "Admin Dashboard";
                             <i class="fas fa-clock"></i>
                         </div>
                         <div class="stat-info">
-                            <h3><?php echo $pending_bookings; ?></h3>
+                            <h3>
+                                <?php echo $pending_bookings; ?>
+                            </h3>
                             <p>Pending Actions</p>
                         </div>
                     </div>
@@ -98,7 +104,9 @@ $page_title = "Admin Dashboard";
                             <i class="fas fa-building"></i>
                         </div>
                         <div class="stat-info">
-                            <h3><?php echo $total_halls; ?></h3>
+                            <h3>
+                                <?php echo $total_halls; ?>
+                            </h3>
                             <p>Active Halls</p>
                         </div>
                     </div>
@@ -122,7 +130,7 @@ $page_title = "Admin Dashboard";
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $recent_q = "SELECT b.*, u.full_name as user_name, h.hall_name 
+                                    $recent_q = "SELECT b.*, u.name as user_name, h.hall_name 
                                              FROM bookings b 
                                              JOIN users u ON b.user_id = u.user_id 
                                              JOIN halls h ON b.hall_id = h.hall_id 
