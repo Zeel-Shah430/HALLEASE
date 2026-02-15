@@ -1,5 +1,5 @@
 <?php
-// Navbar – can be included on all pages
+
 ?>
 <link rel="stylesheet" href="/HALLEASE/assets/css/navbar.css">
 

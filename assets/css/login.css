@@ -23,7 +23,7 @@ body {
     justify-content: center;
 }
 
-/* LOGIN CARD */
+
 .login-container {
     width: 380px;
     padding: 35px;
@@ -33,7 +33,7 @@ body {
     animation: slideUp 0.8s ease;
 }
 
-/* TITLE */
+
 .login-container h2 {
     text-align: center;
     font-size: 30px;
@@ -60,7 +60,7 @@ input:focus {
     box-shadow: 0 0 0 2px rgba(200, 80, 192, 0.25);
 }
 
-/* ✅ RADIO BUTTON FIX — ONLY THIS PART MATTERS */
+
 input[type="radio"] {
     width: auto;
     padding: 0;

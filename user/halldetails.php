@@ -25,7 +25,7 @@ $row = mysqli_fetch_assoc($res);
 
     <div class="left">
         <div class="image-box">
-            <img src="/HALLEASE/assets/images/<?php echo $row['hall_id']; ?>.jpg">
+            <img style="background-size: cover;" src="/HALLEASE/assets/images/<?php echo $row['hall_id']; ?>.jpg">
         </div>
 
         <h1><?php echo $row['hall_name']; ?></h1>

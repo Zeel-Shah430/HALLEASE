@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 14px 40px;
     background: #ffffff;
@@ -8,10 +8,6 @@
     position: sticky;
     top: 0;
     z-index: 100;
-box-sizing: border-box;
-    width: 100%;              
-      
-    overflow: hidden;         
 }
 
 /* LOGO */
@@ -72,13 +68,6 @@ box-sizing: border-box;
     color: white;
     background: linear-gradient(135deg, #d32f2f, #b71c1c);
     transition: all 0.3s ease;
-
-
-      display: inline-flex;        /* prevents weird inline overflow */
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;         /* prevents text wrapping */
-    box-sizing: border-box;  
 }
 
 .logout-btn:hover {
